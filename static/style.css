@@ -1,0 +1,48 @@
+/* Custom styles */
+.workout-card {
+    transition: transform 0.2s;
+}
+
+.workout-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Custom form styling */
+select, input[type="checkbox"] {
+    cursor: pointer;
+}
+
+select option:checked {
+    background-color: #dc2626;
+    color: white;
+}
+
+/* Progress indicator */
+.progress-bar {
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #dc2626;
+    transition: width 0.3s ease;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Workout Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <nav class="bg-red-600 text-white p-4">
+            <div class="container mx-auto">
+                <h1 class="text-2xl font-bold">Workout Planner Pro</h1>
+            </div>
+        </nav>
+
+        <main class="container mx-auto p-4">
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-6 animate__animated animate__fadeIn">
+                <h2 class="text-xl font-semibold mb-4">Your Fitness Profile</h2>
+                <form id="goalForm" class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Your Fitness Goals</label>
+                        <select id="goals" multiple class="w-full p-2 border rounded-md">
+                            <option value="weight_loss">Weight Loss</option>
+                            <option value="muscle_gain">Muscle Gain</option>
+                            <option value="endurance">Endurance</option>
+                            <option value="flexibility">Flexibility</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 mb-2">Preferred Exercise Types</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="exercise_type" value="strength" class="mr-2">
+                                Strength Training
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="exercise_type" value="cardio" class="mr-2">
+                                Cardio
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="exercise_type" value="flexibility" class="mr-2">
+                                Flexibility
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="exercise_type" value="hiit" class="mr-2">
+                                HIIT
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 mb-2">Available Days</label>
+                        <div class="grid grid-cols-4 gap-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Monday" class="mr-2">
+                                Monday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Tuesday" class="mr-2">
+                                Tuesday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Wednesday" class="mr-2">
+                                Wednesday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Thursday" class="mr-2">
+                                Thursday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Friday" class="mr-2">
+                                Friday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Saturday" class="mr-2">
+                                Saturday
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" name="availability" value="Sunday" class="mr-2">
+                                Sunday
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">
+                        Generate Workout Plan
+                    </button>
+                </form>
+            </div>
+
+            <div id="workoutPlan" class="bg-white rounded-lg shadow-lg p-6 hidden animate__animated animate__fadeIn">
+                <h2 class="text-xl font-semibold mb-4">Your Personalized Workout Plan</h2>
+                <div id="planContent" class="space-y-4">
+                    <!-- Workout plan will be inserted here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
